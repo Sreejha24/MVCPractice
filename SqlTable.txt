@@ -1,0 +1,82 @@
+
+Create TABLE PAddress(
+	AddressID int Primary Key not null Identity(1,1),
+	AddressLine varchar(200),
+	City varchar(200),
+	Pin int
+);
+
+select * from PAddress
+insert into PAddress(AddressLine,City,Pin)values('Postmaster, Post Office CHINA RAVURU TENALI (SUB OFFICE)','TENALI',522201),
+('GANDHINAGAR GUNTUR (SUB OFFICE)','GUNTUR',522202),('ITHANAGAR','TENALI',522001),('BenzCircle','VIJAYAWADA',500201),
+('LAKSHMIPURAM','WARANGAL',524021),('KOTHAPET','HYDERABAD',500051),('KOTHAGUDAM','ONGOLE',522092),('KATEVARAM','BAPTLA',522221),
+('GANGANAMMAPET','NELLORE',560492),('BURRIPALEM','TADEPALLIGUDAM',500231),('BANDLAPET','TENALI',522201),('BROADIPET','GUNTUR',522021)
+
+=======================================================================
+CREATE TABLE Person (
+    PersonID int not null Primary key identity(1,1),
+    FirstName varchar(255),
+    LastName varchar(255),
+	Email varchar(200),
+	Mobile bigint,
+    AddressID int not null FOREIGN KEY REFERENCES PAddress(AddressID)
+);
+select * from Person
+INSERT INTO Person(FirstName,LastName,Email,Mobile,AddressID)Values('Sai','	Kishore','saikishore@gmail.com',9870654309,1),
+('Vijaya','Lakshmi','vijayalakshmi@gmail.com',9908765433,2),('Chaithanya','Chowdary','chaithanya1999@gmail.com',8796054356,3),
+('Sai','Sreejha','saisreejha@gmail.com',6809845213,4),('Roshini','Gurram','rgurram@gmail.com',8907654345,5),
+('Geethika','Thaduka','geethikataduka@gmail.com',9907645321,6),('Karthik','Nagineni','knagineni@gmail.com',8790657894,7),
+('Ravi Teja','Motamarri','mraviteja@gmail.com',7689987098,8),('Sai','Krishna','saikrishna@gmail.com',7609678954,9),
+('Ganesh','Yadav','ganesh1999@gmail.com',9807634526,10),('Vinuthna','Nagalingam','nvinuthna@gmail.com',8907657823,11),
+('Vyshnavi','Mallipeddi','mvyshuu@gmail.com',9807657489,12)
+
+==========================================================
+
+CREATE TABLE Departments (
+    DeptNo int NOT NULL PRIMARY KEY identity(1,1),
+    DeptName varchar(200),
+	DeptLocation varchar(200), 
+    EmployeeID int not null FOREIGN KEY REFERENCES Employees(EmployeeID)
+);
+select * from Departments
+
+INSERT INTO Departments(DeptName,DeptLocation,EmployeeID)VALUES('HR','Hyderabad',1),('Manager','Bangalore',2),('TR','Chennai',3),('Finance','Hyderabad',5),('IT','Madhapur',4),('Accounts','Hitech City',6),('Management','Banglore',8);
+INSERT INTO Departments(DeptName,DeptLocation,EmployeeID)VALUES('HR','Hyderabad',11),('Manager','Bangalore',12),('TR','Chennai',13),('Finance','Hyderabad',15),('IT','Madhapur',14),('Accounts','Hitech City',16),('Management','Banglore',18);
+INSERT INTO Departments(DeptName,DeptLocation,EmployeeID)VALUES('HR','Hyderabad',21),('Manager','Bangalore',19),('TR','Chennai',20),('Finance','Hyderabad',10),('IT','Madhapur',7),('Accounts','Hitech City',17);
+
+======================================================
+
+
+CREATE TABLE Employees(  
+EmployeeID INT NOT NULL PRIMARY KEY Identity(1,1),  
+FirstName varchar(255) NOT NULL,  
+LastName varchar(255), 
+Email varchar(200),  
+City varchar(255)  
+);  
+
+select * from Employees
+
+ALTer Table Employees
+Add Mobile bigint;
+
+1	Sai	Ram	sairam@gmail.com	Tenali	7665432198
+2	Sreejha	Prathipati	saisreejha@gmail.com	Miyapur	6657438920
+3	Vijaya	Lakshmi	vijayaprathipati@gmail.com	Tenali	9954632701
+4	Chaithanya	Chowdary	chaithanyachowdary@gmail.com	Vijayawada	8769054321
+5	Roshini	Gurram	rgurram@gmail.com	Warangal	8876097867
+6	Geethika	Thaduka	geethika@gmail.com	Kukatpally	9963453712
+7	Karthik	Nagineni	knagineni24@gmail.com	Ongole	9592216807
+8	 Ravi Teja	Motamarri	mraviteja@gmail.com	Baptla	7301479047
+10	Sai	Krishna	askrishna@gmail.com	Kandukoori	7590649242
+11	Ganesh	Yadhav	ganesh123@gmail.com	Nellore	7809618496
+12	Vinuthna	Nagalingam	nvinuthna@gmail.com	Ponnur	6590432157
+13	Vyshnavi	Mallipedi	mvyshuu@gmail.com	Guntur	8867054321
+14	Divya	Merugu	divya1999@gmail.com	Guntur	6789054325
+15	Indira	Priyadarshini	indu99@gmail.com	Guntur	7890543256
+16	Bhavya	Pallechuri	pchinnuu@gmail.com	Tenali	7678904323
+17	Kiranmai	Ravuri	rkiranmai@gmail.com	Pedaravuru	9978065345
+18	Naveen	Kasukurthi	knaveen@gmail.com	Ponnikallu	7890654789
+19	Karthik 	Ram	karthikram@gmail.com	Hyderabad	9975643789
+20	Krishna	Polu	saikrishna123@gmail.com	Miyapur	9876054356
+21	Hareesh	vuriti	hareeshv@gmail.com	Tenali	9908768690
